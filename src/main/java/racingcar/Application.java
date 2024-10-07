@@ -14,6 +14,8 @@ public class Application {
         String input = sc.nextLine();
         List<String> nameList = Arrays.asList(input.split(","));
         ArrayList<ArrayList<String>> list = new ArrayList<>();
+
+
         for (int i = 0 ; i<nameList.size();i++) {
             ArrayList<String> listt = new ArrayList<>();
             list.add(listt);
@@ -21,6 +23,8 @@ public class Application {
         System.out.println("시도할 회수는 몇회일까요?");
         int count = sc.nextInt();
         System.out.println();
+
+
 
         System.out.println("실행 결과");
         for (int i=0;i<count;i++) {
