@@ -35,17 +35,25 @@ public class Application {
             System.out.println();
         }
         System.out.print("최종 우승자 : ");
-        int maxim = 0;
+        int maxBar = 0;
         for (int i = 0; i< nameList.size() ; i++) {
-            if (maxim < list.get(i).size()) {
-                maxim = list.get(i).size();
+            if (maxBar < list.get(i).size()) {
+                maxBar = list.get(i).size();
             };
+        }
+        List<String> winner = new ArrayList<>();
+        for (int i =0 ; i< nameList.size(); i++) {
+            if (maxBar == list.get(i).size()) {
+                winner.add(nameList.get(i));
+            }
         }
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i< nameList.size() ; i++) {
-            if (maxim == list.get(i).size()) {
+            if (maxBar == list.get(i).size()) {
                 sb.append(nameList.get(i));
-                sb.append(", ");
+                if (i< winner.size()-1) {
+                    sb.append(", ");
+                }
             }
         }
         System.out.println(sb);
