@@ -42,10 +42,23 @@ public class Application {
             System.out.println();
         }
 
+        finalRewardView(nameList,list);
 
+        // TODO 구현 진행
+    }
 
+    private static void sizeNameList(int i, List<String> nameList, ArrayList<ArrayList<String>> list) {
+        for (int j=0;j< nameList.size();j++) {
+            int randomNumber = pickNumberInRange(1,9);
+            if (randomNumber>=4) {
+                list.get(j).add("-");
+            }
+            String result = String.join("",list.get(j));
+            System.out.println(nameList.get(j) + " : " + result);
+        }
+    }
 
-
+    private static void finalRewardView(List<String> nameList, ArrayList<ArrayList<String>> list) {
         System.out.print("최종 우승자 : ");
         int maxBar = 0;
         for (int i = 0; i< nameList.size() ; i++) {
@@ -70,20 +83,5 @@ public class Application {
             }
         }
         System.out.println(sb);
-
-        // TODO 구현 진행
     }
-
-    private static void sizeNameList(int i, List<String> nameList, ArrayList<ArrayList<String>> list) {
-        for (int j=0;j< nameList.size();j++) {
-            int randomNumber = pickNumberInRange(1,9);
-            if (randomNumber>=4) {
-                list.get(j).add("-");
-            }
-            String result = String.join("",list.get(j));
-            System.out.println(nameList.get(j) + " : " + result);
-        }
-    }
-
-    private static void
 }
