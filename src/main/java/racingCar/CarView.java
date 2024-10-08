@@ -8,11 +8,11 @@ public class CarView {
     private static CarModel model;
 
     public CarView (CarModel model) {
-        this.model = model;
+        CarView.model = model;
     }
 
 
-    static void finalRewardView(List<String> nameList, ArrayList<ArrayList<String>> list) {
+    public void finalRewardView(List<String> nameList, ArrayList<ArrayList<String>> list) {
         System.out.print("최종 우승자 : ");
         int maxBar = 0;
         for (int i = 0; i< nameList.size() ; i++) {
@@ -39,7 +39,7 @@ public class CarView {
         System.out.println(sb);
     }
 
-    static void racingMapResult(int countNumber, List<String> nameList, ArrayList<ArrayList<String>> list) {
+    public void racingMapResult(int countNumber, List<String> nameList, ArrayList<ArrayList<String>> list) {
         System.out.println("실행 결과");
         for (int i=0;i<countNumber;i++) {
             model.sizeNameList(nameList,list);
@@ -47,7 +47,7 @@ public class CarView {
         }
     }
 
-    static int tryCount(Scanner sc) {
+    public static int tryCount(Scanner sc) {
         System.out.println("시도할 회수는 몇회일까요?");
         int countNumber;
         String count = sc.nextLine();

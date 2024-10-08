@@ -6,7 +6,7 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class CarModel {
-    static void sizeNameList(List<String> nameList, ArrayList<ArrayList<String>> list) {
+    public static void sizeNameList(List<String> nameList, ArrayList<ArrayList<String>> list) {
         for (int j=0;j< nameList.size();j++) {
             int randomNumber = pickNumberInRange(1,9);
             if (randomNumber>=4) {
