@@ -15,39 +15,21 @@ public class Application {
         List<String> nameList = Arrays.asList(input.split(","));
         ArrayList<ArrayList<String>> list = new ArrayList<>();
 
-
         for (int i = 0 ; i<nameList.size();i++) {
             ArrayList<String> listt = new ArrayList<>();
             list.add(listt);
         }
 
+        int countNumber = tryCount(sc);
 
-        System.out.println("시도할 회수는 몇회일까요?");
-        int countNumber;
-        String count = sc.nextLine();
-        if (count.matches("-?\\d+")) {
-            countNumber = Integer.parseInt(count);
-        }
-        else {
-            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
-        }
-        System.out.println();
-
-
-
-
-        System.out.println("실행 결과");
-        for (int i=0;i<countNumber;i++) {
-            sizeNameList(i,nameList,list);
-            System.out.println();
-        }
+        racingMapResult(countNumber,nameList,list);
 
         finalRewardView(nameList,list);
 
         // TODO 구현 진행
     }
 
-    private static void sizeNameList(int i, List<String> nameList, ArrayList<ArrayList<String>> list) {
+    private static void sizeNameList(List<String> nameList, ArrayList<ArrayList<String>> list) {
         for (int j=0;j< nameList.size();j++) {
             int randomNumber = pickNumberInRange(1,9);
             if (randomNumber>=4) {
@@ -83,5 +65,27 @@ public class Application {
             }
         }
         System.out.println(sb);
+    }
+
+    private static void racingMapResult(int countNumber, List<String> nameList, ArrayList<ArrayList<String>> list) {
+        System.out.println("실행 결과");
+        for (int i=0;i<countNumber;i++) {
+            sizeNameList(nameList,list);
+            System.out.println();
+        }
+    }
+
+    private static int tryCount(Scanner sc) {
+        System.out.println("시도할 회수는 몇회일까요?");
+        int countNumber;
+        String count = sc.nextLine();
+        if (count.matches("-?\\d+")) {
+            countNumber = Integer.parseInt(count);
+        }
+        else {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+        }
+        System.out.println();
+        return countNumber;
     }
 }
