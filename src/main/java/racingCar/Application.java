@@ -1,4 +1,4 @@
-package racingcar;
+package racingCar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,13 +21,19 @@ public class Application {
             list.add(listt);
         }
         System.out.println("시도할 회수는 몇회일까요?");
-        int count = sc.nextInt();
+        int countNumber;
+        String count = sc.nextLine();
+        if (count.matches("-?\\d+")) {
+            countNumber = Integer.parseInt(count);
+        }
+        else {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+        }
         System.out.println();
 
 
-
         System.out.println("실행 결과");
-        for (int i=0;i<count;i++) {
+        for (int i=0;i<countNumber;i++) {
             for (int j=0;j< nameList.size();j++) {
                 int randomNumber = pickNumberInRange(1,9);
                 if (randomNumber>=4) {
