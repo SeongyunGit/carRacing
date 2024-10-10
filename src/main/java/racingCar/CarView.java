@@ -49,15 +49,16 @@ public class CarView {
 
     public static int tryCount(Scanner sc) {
         System.out.println("시도할 회수는 몇회일까요?");
-        int countNumber;
-        String count = sc.nextLine();
-        if (count.matches("-?\\d+")) {
-            countNumber = Integer.parseInt(count);
-        }
-        else {
+        try {
+            int countNumber = 0;
+            String count = sc.nextLine();
+            if (count.matches("-?\\d+")) {
+                countNumber = Integer.parseInt(count);
+            }
+            System.out.println();
+            return countNumber;
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
         }
-        System.out.println();
-        return countNumber;
     }
 }

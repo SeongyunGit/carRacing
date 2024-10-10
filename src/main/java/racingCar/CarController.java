@@ -21,9 +21,8 @@ public class CarController {
             String input = sc.nextLine();
             List<String> nameList = Arrays.asList(input.split(","));
             ArrayList<ArrayList<String>> list = new ArrayList<>();
-            if(!car.nameCountNumber(nameList)) {
-                break;
-            }
+            car.nameCountNumber(nameList);
+
             for (int i = 0 ; i<nameList.size();i++) {
                 ArrayList<String> listt = new ArrayList<>();
                 list.add(listt);
