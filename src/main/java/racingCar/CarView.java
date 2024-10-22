@@ -13,7 +13,7 @@ public class CarView {
 
 
     public void finalRewardView(List<String> nameList, ArrayList<ArrayList<String>> list) {
-        System.out.print("최종 우승자 : ");
+        System.out.print(Util.WINNER);
         int maxBar = 0;
         for (int i = 0; i< nameList.size() ; i++) {
             if (maxBar < list.get(i).size()) {
@@ -40,7 +40,7 @@ public class CarView {
     }
 
     public void racingMapResult(int countNumber, List<String> nameList, ArrayList<ArrayList<String>> list) {
-        System.out.println("실행 결과");
+        System.out.println(Util.result);
         for (int i=0;i<countNumber;i++) {
             model.sizeNameList(nameList,list);
             System.out.println();
@@ -48,7 +48,7 @@ public class CarView {
     }
 
     public static int tryCount(Scanner sc) {
-        System.out.println("시도할 회수는 몇회일까요?");
+        System.out.println(Util.wantTry);
         try {
             int countNumber = 0;
             String count = sc.nextLine();
@@ -58,7 +58,7 @@ public class CarView {
             System.out.println();
             return countNumber;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
+            throw new IllegalArgumentException(Util.ERRORMESSAGE);
         }
     }
 }

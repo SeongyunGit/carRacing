@@ -14,27 +14,27 @@ public class CarController {
     }
 
     public void gameStart() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Util.gameStartMention);
         Scanner sc = new Scanner(System.in);
-        while (true) {
-            String input = sc.nextLine();
-            Car car = new Car(input);
+        String input = sc.nextLine();
+        Car car = new Car(input);
 
-            nameList = car.getNameList();
-            ArrayList<ArrayList<String>> list = new ArrayList<>();
+        nameList = car.getNameList();
 
-            for (int i = 0 ; i<nameList.size();i++) {
-                ArrayList<String> listt = new ArrayList<>();
-                list.add(listt);
-            }
 
-            int countNumber = view.tryCount(sc);
-
-            view.racingMapResult(countNumber,nameList,list);
-
-            view.finalRewardView(nameList,list);
-            break;
+        ArrayList<ArrayList<String>> list = new ArrayList<>();
+        for (int i = 0 ; i<nameList.size();i++) {
+            ArrayList<String> listt = new ArrayList<>();
+            list.add(listt);
         }
+
+        int countNumber = view.tryCount(sc);
+
+        view.racingMapResult(countNumber,nameList,list);
+
+        view.finalRewardView(nameList,list);
+
+
         // TODO 구현 진행
     }
 }
