@@ -7,11 +7,10 @@ import java.util.Scanner;
 
 public class CarController {
     private final CarView view;
-    private final Car car;
+    private static List<String> nameList;
 
-    public CarController(CarView view,Car car) {
+    public CarController(CarView view) {
         this.view = view;
-        this.car = car;
     }
 
     public void gameStart() {
@@ -19,9 +18,10 @@ public class CarController {
         Scanner sc = new Scanner(System.in);
         while (true) {
             String input = sc.nextLine();
-            List<String> nameList = Arrays.asList(input.split(","));
+            Car car = new Car(input);
+
+            nameList = car.getNameList();
             ArrayList<ArrayList<String>> list = new ArrayList<>();
-            car.nameCountNumber(nameList);
 
             for (int i = 0 ; i<nameList.size();i++) {
                 ArrayList<String> listt = new ArrayList<>();

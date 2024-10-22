@@ -1,24 +1,25 @@
 package racingCar;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Car {
-    private String name;
-    private int position = 0;
+    private List<String> nameList;
 
-    public Car(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("[ERROR] 이름은 5글자 이하여야 한다.");
-        }
-        this.name = name;
+
+    public Car(String input) {
+        this.nameList = new ArrayList<>();
+        splitInput(input);
     }
-    // 추가 기능 구현
 
-    public static void nameCountNumber(List<String> nameList) {
-        for (String name : nameList) {
-            if (name.length()>5) {
-                throw new IllegalArgumentException("[ERROR] 이름은 5글자 이하여야 한다.");
-            }
+    private void splitInput(String input) {
+        if (input!=null && !input.isEmpty()) {
+            this.nameList = new ArrayList<>(Arrays.asList(input.split(",")));
         }
+    }
+
+    public List<String> getNameList() {
+        return this.nameList;
     }
 }
