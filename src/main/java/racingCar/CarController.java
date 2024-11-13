@@ -16,12 +16,12 @@ public class CarController {
     public void gameStart() {
 
         Scanner sc = new Scanner(System.in);
-        CarList carList;
+
 
         while (true) {
             System.out.println(Util.gameStartMention);
             String input = sc.nextLine();
-            carList = new CarList(input);
+            CarList carList = new CarList(input);
             nameList = carList.getNameList();
             if (!carList.getInspectionResult()) break;
         }
