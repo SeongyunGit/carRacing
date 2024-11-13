@@ -14,13 +14,17 @@ public class CarController {
     }
 
     public void gameStart() {
-        System.out.println(Util.gameStartMention);
+
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        Car car = new Car(input);
+        CarList carList;
 
-        nameList = car.getNameList();
-
+        while (true) {
+            System.out.println(Util.gameStartMention);
+            String input = sc.nextLine();
+            carList = new CarList(input);
+            nameList = carList.getNameList();
+            if (!carList.getInspectionResult()) break;
+        }
 
         ArrayList<ArrayList<String>> list = new ArrayList<>();
         for (int i = 0 ; i<nameList.size();i++) {
